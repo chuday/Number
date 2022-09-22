@@ -8,6 +8,7 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
+    
     @IBOutlet weak var switchTimer: UISwitch!
     @IBOutlet weak var timeGameLabel: UILabel!
     

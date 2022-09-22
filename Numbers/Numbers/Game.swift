@@ -14,7 +14,7 @@ enum StatusGame {
 }
 
 class Game {
-
+    
     struct Item {
         var title: String
         var isFound = false
@@ -27,6 +27,9 @@ class Game {
     
     private let data = Array(1...99)
     private var countItems: Int
+    private var timeForGame: Int
+    private var timer: Timer?
+    private var updateTimer: ((StatusGame, Int)-> Void)
     
     var statusGame: StatusGame = .start {
         didSet {
@@ -44,7 +47,6 @@ class Game {
         }
     }
     
-    private var timeForGame: Int
     private var secondsGame: Int {
         didSet {
             if secondsGame == 0 {
@@ -53,9 +55,6 @@ class Game {
             updateTimer(statusGame, secondsGame)
         }
     }
-    
-    private var timer: Timer?
-    private var updateTimer: ((StatusGame, Int)-> Void)
     
     init(countItems: Int, updateTimer: @escaping (_ status: StatusGame, _ seconds: Int)-> Void) {
         self.countItems = countItems

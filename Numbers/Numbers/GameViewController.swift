@@ -29,7 +29,6 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScreen()
-        
     }
     
     @IBAction func pressButton(_ sender: UIButton) {
@@ -68,10 +67,8 @@ class GameViewController: UIViewController {
                 }
             }
         }
-        
         nextDigit.text = game.nextItem?.title
         updateInfoGame(with: game.statusGame)
-        
     }
     
     private func updateInfoGame(with status: StatusGame) {
@@ -104,7 +101,6 @@ class GameViewController: UIViewController {
         
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
-        
     }
     
     private func showAlertActionSheet() {
@@ -112,7 +108,6 @@ class GameViewController: UIViewController {
         let newGameAction = UIAlertAction(title: "Начать новую игру", style: .default) { [ weak self ] (_) in
             self?.game.newGame()
             self?.setupScreen()
-            
         }
         
         let showRecord = UIAlertAction(title: "Посмотреть рекорд", style: .default) { [ weak self ] (_)  in
